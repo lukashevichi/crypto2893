@@ -40,21 +40,29 @@ dependencies {
     //Modules
 
     implementation(project(':domain-local'))
-    implementation(project(':common-pojo')) 
+    implementation(project(':common-pojo'))
     implementation(project(':domain-remote'))
     implementation(project(':feature-currency-list'))
+    implementation(project(':feature-currency-details'))
     implementation(project(':feature-converter'))
 
     //Libs
 
-    def nav_version = "2.4.0"
+    implementation("androidx.core:core-splashscreen:1.0.0-beta01")
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+    implementation("com.google.android.material:material:1.5.0")
+
+    def nav_version = "2.4.0"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 

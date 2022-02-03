@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="item_list"
+        android:id="@+id/currency_navigation"
         android:contentDescription="@string/menu_list"
         android:icon="@drawable/ic_baseline_list_24"
         android:title="@string/menu_list" />
 
     <item
-        android:id="item_converter"
+        android:id="@+id/converter_navigation"
         android:contentDescription="@string/menu_converter"
         android:icon="@drawable/ic_baseline_transform_24"
         android:title="@string/menu_converter" />

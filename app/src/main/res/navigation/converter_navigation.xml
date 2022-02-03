@@ -2,10 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/converter_navigation"
-    app:startDestination="@id/converterFragment">
+    app:startDestination="@id/converterDestination">
 
     <fragment
-        android:id="@+id/converterFragment"
+        android:id="@+id/converterDestination"
         android:name="by.maxluxs.feature_converter.ConverterFragment"
-        android:label="ConverterFragment" />
+        android:label="@string/converter_title" />
+
 </navigation>

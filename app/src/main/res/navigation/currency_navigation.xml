@@ -2,11 +2,20 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/currency_navigation"
-    app:startDestination="@id/currencyListFragment">
+    app:startDestination="@id/currencyListDestination">
 
     <fragment
-        android:id="@+id/currencyListFragment"
+        android:id="@+id/currencyListDestination"
         android:name="by.maxluxs.feature_currency_list.CurrencyListFragment"
-        android:label="CurrencyListFragment" />
+        android:label="List of concurrency">
+        <action
+            android:id="@+id/action_to_currency_details"
+            app:destination="@id/currencyDetailsDestination" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/currencyDetailsDestination"
+        android:name="by.maxluxs.feature_currency_details.CurrencyDetailsFragment"
+        android:label="CurrencyDetailsFragment" />
 
 </navigation>

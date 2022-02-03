@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.2015625" />
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/drawable/ic_baseline_list_24.xml" value="0.2015625" />
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/drawable/ic_baseline_transform_24.xml" value="0.2015625" />
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/drawable/logo.xml" value="0.175" />
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/drawable/navigation_view_selector.xml" value="0.2015625" />
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/layout/content_fragment.xml" value="0.22" />
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/menu/menu_app_bar.xml" value="0.18541666666666667" />
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.18541666666666667" />
+        <entry key="..\:/work/ST/crypto2893/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2015625" />
+        <entry key="..\:/work/ST/crypto2893/feature-converter/src/main/res/layout/converter_fragment.xml" value="0.18541666666666667" />
+        <entry key="..\:/work/ST/crypto2893/feature-currency-details/src/main/res/layout/currency_details_fragment.xml" value="0.17135416666666667" />
+        <entry key="..\:/work/ST/crypto2893/feature-currency-list/src/main/res/layout/currency_list_fragment.xml" value="0.15885416666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/menu/menu_app_bar.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.28717948717948716" />
