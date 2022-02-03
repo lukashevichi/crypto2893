@@ -5,14 +5,16 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 /**
- *
+ * Singleton object for creating a marketCapApi object
+ * @see MarketCapApi
  * */
 object MarketCapApiFactory {
 
-    private const val BASE = "https://sandbox-api.coinmarketcap.com"
-
-    fun create() = Retrofit.Builder()
-        .baseUrl(BASE)
+    /**
+     * Create [MarketCapApi] object
+     * */
+    fun createMarketCapApi() = Retrofit.Builder()
+        .baseUrl(MarketCapApiEndpoints.BASE)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
