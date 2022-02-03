@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="item_list"
+        android:contentDescription="@string/menu_list"
+        android:icon="@drawable/ic_baseline_list_24"
+        android:title="@string/menu_list" />
+
+    <item
+        android:id="item_converter"
+        android:contentDescription="@string/menu_converter"
+        android:icon="@drawable/ic_baseline_transform_24"
+        android:title="@string/menu_converter" />
+
+</menu>
