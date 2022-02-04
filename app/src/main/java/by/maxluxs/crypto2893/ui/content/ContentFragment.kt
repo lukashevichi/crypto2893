@@ -26,6 +26,12 @@ class ContentFragment : Fragment(R.layout.content_fragment) {
 
     private val mainActivity: AppCompatActivity get() = requireActivity() as AppCompatActivity
 
+    private val navHostFragment: NavHostFragment
+        get() =
+            childFragmentManager.findFragmentById(R.id.main_container) as NavHostFragment
+
+    private val navController get() = navHostFragment.navController
+
     private val fragmentListener = object : FragmentManager.FragmentLifecycleCallbacks() {
 
         override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
@@ -61,21 +67,18 @@ class ContentFragment : Fragment(R.layout.content_fragment) {
         mainActivity.setSupportActionBar(binding.toolbar)
         mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         mainActivity.supportActionBar?.setDisplayShowHomeEnabled(true)
-        setHasOptionsMenu(true)
-    }
-
-    private fun setBottomNavigationView() {
-        val navHostFragment: NavHostFragment =
-            childFragmentManager.findFragmentById(R.id.main_container) as NavHostFragment
-        val navController = navHostFragment.navController
-        NavigationUI.setupWithNavController(
-            binding.bottomNavigationView,
-            navController
-        )
         NavigationUI.setupActionBarWithNavController(
             mainActivity,
             navController,
             AppBarConfigurations.mainAppBarConfiguration
+        )
+        setHasOptionsMenu(true)
+    }
+
+    private fun setBottomNavigationView() {
+        NavigationUI.setupWithNavController(
+            binding.bottomNavigationView,
+            navController
         )
     }
 

@@ -1,4 +1,4 @@
-package by.maxluxs.feature_currency_list.adapter
+package by.maxluxs.feature_currency_list.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -10,9 +10,9 @@
         <entry key="feature-converter/src/main/res/drawable/ic_bitcoin.xml" value="0.18125" />
         <entry key="feature-converter/src/main/res/drawable/ic_dollar.xml" value="0.18125" />
         <entry key="feature-converter/src/main/res/drawable/ic_transfer.xml" value="0.18125" />
-        <entry key="feature-converter/src/main/res/layout/converter_fragment.xml" value="0.1503623188405797" />
+        <entry key="feature-converter/src/main/res/layout/converter_fragment.xml" value="0.25" />
         <entry key="feature-currency-details/src/main/res/drawable/ic_currency.xml" value="0.18125" />
-        <entry key="feature-currency-details/src/main/res/layout/currency_details_fragment.xml" value="0.16510416666666666" />
+        <entry key="feature-currency-details/src/main/res/layout/currency_details_fragment.xml" value="0.25" />
         <entry key="feature-currency-list/src/main/res/drawable/ic_currency.xml" value="0.18125" />
         <entry key="feature-currency-list/src/main/res/layout/currency_item.xml" value="0.25" />
         <entry key="feature-currency-list/src/main/res/layout/currency_list_fragment.xml" value="0.25" />

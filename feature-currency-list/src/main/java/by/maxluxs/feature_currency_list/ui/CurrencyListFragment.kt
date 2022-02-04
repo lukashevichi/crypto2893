@@ -1,16 +1,19 @@
-package by.maxluxs.feature_currency_list
+package by.maxluxs.feature_currency_list.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import by.maxluxs.feature_currency_list.adapter.CurrencyAdapter
-import by.maxluxs.feature_currency_list.adapter.CurrencyCallback
+import by.maxluxs.feature_currency_list.R
 import by.maxluxs.feature_currency_list.databinding.CurrencyListFragmentBinding
 import by.maxluxs.feature_currency_list.model.CurrencyModel
+import by.maxluxs.feature_currency_list.presentation.CurrencyListViewModel
+import by.maxluxs.feature_currency_list.ui.adapter.CurrencyAdapter
+import by.maxluxs.feature_currency_list.ui.adapter.CurrencyCallback
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 

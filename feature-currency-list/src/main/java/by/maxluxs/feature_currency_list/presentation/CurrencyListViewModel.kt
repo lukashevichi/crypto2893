@@ -1,4 +1,4 @@
-package by.maxluxs.feature_currency_list
+package by.maxluxs.feature_currency_list.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -37,19 +37,16 @@ class CurrencyListViewModel @Inject constructor(
         repository.getCurrencies()
             .observeOn(AndroidSchedulers.mainThread())
             .flatMap { result ->
-                val modelList: List<CurrencyModel> = result.getOrNull()?.map {
-                    CurrencyModel(
-                        name = it.name ?: "",
-                        price = "",
-                    )
-                } ?: emptyList()
-                modelList.justSingle()
+                (result.getOrNull()
+                    ?.map {
+                        CurrencyModel(
+                            name = it.name ?: "",
+                            price = "",
+                        )
+                    } ?: emptyList())
+                    .justSingle()
             }
-            .subscribe({
-                _data.postValue(it)
-            }, {
-                _error.postValue(it)
-            })
+            .subscribe({ _data.postValue(it) }, { _error.postValue(it) })
             .disposeOnCleared()
 
 
