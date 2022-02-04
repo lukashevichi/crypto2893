@@ -9,23 +9,34 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-import by.maxluxs.crypto2893.utils.AppBarConfigurations
+import androidx.navigation.findNavController
+import androidx.navigation.ui.navigateUp
 import by.maxluxs.crypto2893.R
 import by.maxluxs.crypto2893.databinding.ActivityMainBinding
+import by.maxluxs.crypto2893.utils.AppBarConfigurations
 
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null
     private val binding: ActivityMainBinding get() = _binding!!
 
+    private val mainNavController
+        get() = try {
+            findNavController(R.id.main_container)
+        } catch (e: Exception) {
+            null
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSplashScreen()
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return (mainNavController?.navigateUp(AppBarConfigurations.mainAppBarConfiguration) == true)
+                || super.onSupportNavigateUp()
     }
 
     private fun setSplashScreen() {

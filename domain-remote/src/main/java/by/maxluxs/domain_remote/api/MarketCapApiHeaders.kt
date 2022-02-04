@@ -9,8 +9,8 @@ object MarketCapApiHeaders {
      * Accept headers endpoints
      * */
     object Accept {
-        const val ACCEPT_JSON = "Accept: application/json"
-        const val ENCODING_DEFLATE_GZIP = "Accept-Encoding: deflate, gzip"
+        const val ACCEPT_JSON = "Accept:application/json"
+        const val ENCODING_DEFLATE_GZIP = "Accept-Encoding:deflate, gzip"
     }
 
     /**

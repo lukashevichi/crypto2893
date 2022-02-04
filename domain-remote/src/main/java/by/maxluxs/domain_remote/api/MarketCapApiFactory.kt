@@ -14,7 +14,7 @@ object MarketCapApiFactory {
      * Create [MarketCapApi] object
      * */
     fun createMarketCapApi() = Retrofit.Builder()
-        .baseUrl(MarketCapApiEndpoints.BASE)
+        .baseUrl(MarketCapApiEndpoint.BASE)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()

@@ -1,10 +1,6 @@
 package by.maxluxs.domain_remote.api
 
 import by.maxluxs.domain_remote.api.KEY.VALUE
-import by.maxluxs.domain_remote.api.MarketCapApiEndpoints.BASE
-import by.maxluxs.domain_remote.api.MarketCapApiEndpoints.Purpose.LISTING
-import by.maxluxs.domain_remote.api.MarketCapApiEndpoints.Top.CRYPTOCURRENCY
-import by.maxluxs.domain_remote.api.MarketCapApiEndpoints.Type.LATEST
 import by.maxluxs.domain_remote.api.MarketCapApiHeaders.Accept.ACCEPT_JSON
 import by.maxluxs.domain_remote.api.MarketCapApiHeaders.Accept.ENCODING_DEFLATE_GZIP
 import by.maxluxs.domain_remote.api.MarketCapApiHeaders.KEY
@@ -19,8 +15,15 @@ interface MarketCapApi {
     /**
      * Listing
      * */
-    @GET("$BASE$CRYPTOCURRENCY$LISTING$LATEST")
+    @GET("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest")
     @Headers(ACCEPT_JSON, "$KEY:$VALUE", ENCODING_DEFLATE_GZIP)
     fun <T> listing(): Result<T>
+
+    /**
+     * Listing
+     * */
+    @GET("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest")
+    @Headers(ACCEPT_JSON, "$KEY:$VALUE", ENCODING_DEFLATE_GZIP)
+    fun <T> quotes(): Result<T>
 
 }

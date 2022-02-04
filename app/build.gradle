@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -65,5 +66,8 @@ dependencies {
     def nav_version = "2.4.0"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    implementation ("com.google.dagger:dagger:2.40.5")
+    kapt ("com.google.dagger:dagger-compiler:2.40.5")
 
 }
