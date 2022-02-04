@@ -5,6 +5,7 @@ import by.maxluxs.domain_remote.api.MarketCapApiHeaders.Accept.ACCEPT_JSON
 import by.maxluxs.domain_remote.api.MarketCapApiHeaders.Accept.ENCODING_DEFLATE_GZIP
 import by.maxluxs.domain_remote.api.MarketCapApiHeaders.KEY
 import by.maxluxs.domain_remote.model.request.ListingRequest
+import by.maxluxs.domain_remote.model.response.Currency
 import io.reactivex.Single
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -28,5 +29,9 @@ interface MarketCapApi {
     @GET("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest")
     @Headers(ACCEPT_JSON, "$KEY:$VALUE", ENCODING_DEFLATE_GZIP)
     fun <T> quotes(): Single<Result<T>>
+
+    @GET("https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/map")
+    @Headers(ACCEPT_JSON, "$KEY:$VALUE", ENCODING_DEFLATE_GZIP)
+    fun map(): Single<Result<List<Currency>>>
 
 }

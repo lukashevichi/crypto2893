@@ -43,6 +43,7 @@ dependencies {
 
     implementation(project(':domain-local'))
     implementation(project(':domain-remote'))
+    implementation(project(':domain-repository'))
 
     implementation(project(':feature-currency-list'))
     implementation(project(':feature-currency-details'))
@@ -68,7 +69,11 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    implementation("com.google.dagger:dagger:2.40.5")
-    kapt("com.google.dagger:dagger-compiler:2.40.5")
+    def dagger_version = "2.40.5"
+    implementation("com.google.dagger:dagger:$dagger_version")
+    kapt("com.google.dagger:dagger-compiler:$dagger_version")
+    api("com.google.dagger:dagger-android:$dagger_version")
+    api("com.google.dagger:dagger-android-support:$dagger_version")
+    kapt("com.google.dagger:dagger-android-processor:$dagger_version")
 
 }

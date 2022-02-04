@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -37,5 +38,12 @@ dependencies {
 
     implementation(project(':domain-local'))
     implementation(project(':domain-remote'))
+
+    //Libs
+
+    implementation("com.google.dagger:dagger:2.40.5")
+    kapt("com.google.dagger:dagger-compiler:2.40.5")
+
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
 
 }

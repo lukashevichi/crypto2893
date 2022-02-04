@@ -12,6 +12,7 @@ import androidx.navigation.ui.NavigationUI
 import by.maxluxs.crypto2893.R
 import by.maxluxs.crypto2893.databinding.ContentFragmentBinding
 import by.maxluxs.crypto2893.utils.AppBarConfigurations
+import by.maxluxs.feature_converter.ConverterFragment
 import by.maxluxs.feature_currency_details.CurrencyDetailsFragment
 
 class ContentFragment : Fragment(R.layout.content_fragment) {
@@ -30,6 +31,10 @@ class ContentFragment : Fragment(R.layout.content_fragment) {
                 is CurrencyDetailsFragment -> {
                     binding.appBarLayout.setExpanded(false, true)
                     binding.bottomNavigationView.isVisible = false
+                }
+                is ConverterFragment -> {
+                    binding.appBarLayout.setExpanded(false, true)
+                    binding.bottomNavigationView.isVisible = true
                 }
                 else -> {
                     binding.appBarLayout.setExpanded(true, true)
