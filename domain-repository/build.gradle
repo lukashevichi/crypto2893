@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'kotlin-kapt'
 }
 
 android {
@@ -34,20 +33,9 @@ android {
 
 dependencies {
 
-    // Modules
+    //Modules
 
-    implementation(project(':common-mapper'))
-
-    // Libs
-
-    def VERSION = "2.4.1"
-
-    implementation("androidx.room:room-runtime:$VERSION")
-    kapt("androidx.room:room-compiler:$VERSION")
-    implementation("androidx.room:room-testing:$VERSION")
-    implementation("androidx.room:room-rxjava2:$VERSION")
-    implementation("androidx.room:room-ktx:$VERSION")
-
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+    implementation(project(':domain-local'))
+    implementation(project(':domain-remote'))
 
 }

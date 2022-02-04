@@ -1,19 +1,18 @@
 package by.maxluxs.crypto2893.ui.content
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
 import by.maxluxs.crypto2893.R
-import by.maxluxs.crypto2893.databinding.ActivityMainBinding
 import by.maxluxs.crypto2893.databinding.ContentFragmentBinding
 import by.maxluxs.crypto2893.utils.AppBarConfigurations
+import by.maxluxs.feature_currency_details.CurrencyDetailsFragment
 
 class ContentFragment : Fragment(R.layout.content_fragment) {
 
@@ -24,12 +23,31 @@ class ContentFragment : Fragment(R.layout.content_fragment) {
 
     private val mainActivity: AppCompatActivity get() = requireActivity() as AppCompatActivity
 
+    private val fragmentListener = object : FragmentManager.FragmentLifecycleCallbacks() {
+
+        override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
+            when (f) {
+                is CurrencyDetailsFragment -> {
+                    binding.appBarLayout.setExpanded(false, true)
+                    binding.bottomNavigationView.isVisible = false
+                }
+                else -> {
+                    binding.appBarLayout.setExpanded(true, true)
+                    binding.bottomNavigationView.isVisible = true
+                }
+            }
+            super.onFragmentResumed(fm, f)
+        }
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = ContentFragmentBinding.bind(view)
         viewModel = ViewModelProvider(this)[ContentViewModel::class.java]
         setActionBar()
         setBottomNavigationView()
+        childFragmentManager.registerFragmentLifecycleCallbacks(fragmentListener, true)
     }
 
     private fun setActionBar() {

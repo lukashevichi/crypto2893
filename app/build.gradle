@@ -39,10 +39,11 @@ android {
 dependencies {
 
     //Modules
+    implementation(project(':common-mapper'))
 
     implementation(project(':domain-local'))
-    implementation(project(':common-pojo'))
     implementation(project(':domain-remote'))
+
     implementation(project(':feature-currency-list'))
     implementation(project(':feature-currency-details'))
     implementation(project(':feature-converter'))
@@ -67,7 +68,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    implementation ("com.google.dagger:dagger:2.40.5")
-    kapt ("com.google.dagger:dagger-compiler:2.40.5")
+    implementation("com.google.dagger:dagger:2.40.5")
+    kapt("com.google.dagger:dagger-compiler:2.40.5")
 
 }

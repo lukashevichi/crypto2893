@@ -57,9 +57,9 @@
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:background="@color/black"
-        app:layout_anchor="@id/main_container"
         app:itemIconTint="@drawable/bottom_navigation_selector"
         app:itemTextColor="@drawable/bottom_navigation_selector"
+        app:layout_anchor="@id/main_container"
         app:layout_anchorGravity="bottom"
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:menu="@menu/menu_bottom_navigation" />

@@ -9,8 +9,9 @@ dependencyResolutionManagement {
 rootProject.name = "crypto2893"
 include ':app'
 include ':domain-local'
-include ':common-pojo'
+include ':common-mapper'
 include ':domain-remote'
 include ':feature-currency-list'
 include ':feature-converter'
 include ':feature-currency-details'
+include ':domain-repository'

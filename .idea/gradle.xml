@@ -11,9 +11,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/common-pojo" />
+            <option value="$PROJECT_DIR$/common-mapper" />
             <option value="$PROJECT_DIR$/domain-local" />
             <option value="$PROJECT_DIR$/domain-remote" />
+            <option value="$PROJECT_DIR$/domain-repository" />
             <option value="$PROJECT_DIR$/feature-converter" />
             <option value="$PROJECT_DIR$/feature-currency-details" />
             <option value="$PROJECT_DIR$/feature-currency-list" />
