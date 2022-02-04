@@ -1,7 +1,10 @@
 package by.maxluxs.feature_currency_details
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class CurrencyDetailsViewModel : ViewModel() {
+@HiltViewModel
+class CurrencyDetailsViewModel @Inject constructor() : ViewModel() {
     // TODO: Implement the ViewModel
 }

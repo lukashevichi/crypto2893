@@ -14,7 +14,9 @@ import by.maxluxs.crypto2893.databinding.ContentFragmentBinding
 import by.maxluxs.crypto2893.utils.AppBarConfigurations
 import by.maxluxs.feature_converter.ConverterFragment
 import by.maxluxs.feature_currency_details.CurrencyDetailsFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ContentFragment : Fragment(R.layout.content_fragment) {
 
     private lateinit var viewModel: ContentViewModel

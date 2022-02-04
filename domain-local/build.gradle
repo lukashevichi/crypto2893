@@ -37,6 +37,7 @@ dependencies {
     // Modules
 
     implementation(project(':common-mapper'))
+    implementation 'androidx.lifecycle:lifecycle-livedata-core-ktx:2.4.0'
 
     // Libs
 

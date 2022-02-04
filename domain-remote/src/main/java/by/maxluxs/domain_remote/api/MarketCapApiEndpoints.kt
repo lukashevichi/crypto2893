@@ -10,7 +10,7 @@ class MarketCapApiEndpoint {
         /**
          * Base domain MarketCapApiEndpoints
          * */
-        const val BASE = "https://sandbox-api.coinmarketcap.com/v1"
+        const val BASE = "https://sandbox-api.coinmarketcap.com/v1/"
     }
 
     /**

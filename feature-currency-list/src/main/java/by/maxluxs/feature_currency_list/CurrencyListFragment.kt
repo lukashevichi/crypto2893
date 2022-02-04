@@ -3,6 +3,7 @@ package by.maxluxs.feature_currency_list
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,11 +12,12 @@ import by.maxluxs.feature_currency_list.adapter.CurrencyCallback
 import by.maxluxs.feature_currency_list.databinding.CurrencyListFragmentBinding
 import by.maxluxs.feature_currency_list.model.CurrencyModel
 import com.google.android.material.snackbar.Snackbar
-import dagger.android.support.DaggerFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class CurrencyListFragment : DaggerFragment(R.layout.currency_list_fragment), CurrencyCallback {
+@AndroidEntryPoint
+class CurrencyListFragment : Fragment(R.layout.currency_list_fragment), CurrencyCallback {
 
-    private val viewModel: CurrencyListViewModel by viewModels({ viewModelFactory })
+    private val viewModel: CurrencyListViewModel by viewModels()
 
     private var _binding: CurrencyListFragmentBinding? = null
     private val binding: CurrencyListFragmentBinding get() = _binding!!

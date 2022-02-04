@@ -5,12 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import by.maxluxs.domain_repository.CurrenciesRepository
 import by.maxluxs.feature_currency_list.model.CurrencyModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
+@HiltViewModel
 class CurrencyListViewModel @Inject constructor(
     private val repository: CurrenciesRepository
 ) : ViewModel() {

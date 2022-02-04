@@ -14,7 +14,9 @@ import androidx.navigation.ui.navigateUp
 import by.maxluxs.crypto2893.R
 import by.maxluxs.crypto2893.databinding.ActivityMainBinding
 import by.maxluxs.crypto2893.utils.AppBarConfigurations
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var _binding: ActivityMainBinding? = null

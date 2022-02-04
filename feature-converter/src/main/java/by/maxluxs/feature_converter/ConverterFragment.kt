@@ -5,7 +5,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import by.maxluxs.feature_converter.databinding.ConverterFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ConverterFragment : Fragment(R.layout.converter_fragment) {
 
     private lateinit var viewModel: ConverterViewModel
