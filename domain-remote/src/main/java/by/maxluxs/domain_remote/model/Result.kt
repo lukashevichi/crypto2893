@@ -7,17 +7,14 @@ import com.google.gson.annotations.SerializedName
  * @see Status
  * */
 data class Result<T>(
-
-    @SerializedName("status") var status: Status? = Status(),
-    @SerializedName("data") var data: ArrayList<T> = arrayListOf()
-
+    @SerializedName("status") val status: Status? = Status(),
+    @SerializedName("data") val data: ArrayList<T> = arrayListOf()
 )
 
 /**
  * Status response data model
  * */
 data class Status(
-
     @SerializedName("timestamp")
     var timestamp: String? = null,
     @SerializedName("error_code")
@@ -30,5 +27,4 @@ data class Status(
     var creditCount: Int? = null,
     @SerializedName("notice")
     var notice: String? = null
-
 )

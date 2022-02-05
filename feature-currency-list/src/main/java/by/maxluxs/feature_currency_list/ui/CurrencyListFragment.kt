@@ -8,12 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import by.maxluxs.common_component_interfaces.Activity.CanShowProgress
 import by.maxluxs.feature_currency_list.R
 import by.maxluxs.feature_currency_list.databinding.CurrencyListFragmentBinding
 import by.maxluxs.feature_currency_list.model.CurrencyModel
 import by.maxluxs.feature_currency_list.presentation.CurrencyListViewModel
 import by.maxluxs.feature_currency_list.ui.adapter.CurrencyAdapter
 import by.maxluxs.feature_currency_list.ui.adapter.CurrencyCallback
+import by.maxluxs.feature_currency_list.ui.adapter.SpacesItemDecoration
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,6 +43,10 @@ class CurrencyListFragment : Fragment(R.layout.currency_list_fragment), Currency
         viewModel.error.observe(viewLifecycleOwner) {
             showError(it.localizedMessage ?: "")
         }
+        viewModel.progress.observe(viewLifecycleOwner) {
+            if (it) (requireActivity() as? CanShowProgress)?.showProgress()
+            else (requireActivity() as? CanShowProgress)?.hideProgress()
+        }
     }
 
     private fun setAdapter() {
@@ -49,6 +55,7 @@ class CurrencyListFragment : Fragment(R.layout.currency_list_fragment), Currency
             adapter = CurrencyAdapter().apply {
                 clickCallback = this@CurrencyListFragment::onClickCurrencyItem
             }
+            addItemDecoration(SpacesItemDecoration(28))
         }
     }
 

@@ -41,6 +41,7 @@ dependencies {
 
     //Modules
     implementation(project(':common-mapper'))
+    implementation(project(':common-component-interfaces'))
 
     implementation(project(':domain-local'))
     implementation(project(':domain-remote'))

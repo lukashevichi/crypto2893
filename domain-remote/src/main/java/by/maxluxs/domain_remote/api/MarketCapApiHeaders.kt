@@ -1,21 +1,17 @@
 package by.maxluxs.domain_remote.api
 
 /**
- * Singleton object to provide constant headers values
+ * Accept headers endpoints
  * */
-object MarketCapApiHeaders {
+object HeadersType {
+    const val ACCEPT = "Accept"
+    const val ACCEPT_ENCODING = "Accept-Encoding"
+    const val CONTENT_TYPE = "Content-Type"
+    const val API_KEY = "X-CMC_PRO_API_KEY"
+}
 
-    /**
-     * Accept headers endpoints
-     * */
-    object Accept {
-        const val ACCEPT_JSON = "Accept:application/json"
-        const val ENCODING_DEFLATE_GZIP = "Accept-Encoding:deflate, gzip"
-    }
-
-    /**
-     * Key value of header KEY endpoints
-     * */
-    const val KEY = "X-CMC_PRO_API_KEY:"
-
+object HeadersValue {
+    const val JSON = "application/json"
+    const val DEFLATE_GZIP = ":deflate, gzip"
+    const val JSON_UTF = "application/json; charset=utf-8"
 }

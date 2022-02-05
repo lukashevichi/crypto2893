@@ -1,14 +1,25 @@
 package by.maxluxs.domain_remote.api
 
-import android.content.Context
 import android.util.Log
 import by.maxluxs.domain_remote.BuildConfig
+import by.maxluxs.domain_remote.api.HeadersType.ACCEPT
+import by.maxluxs.domain_remote.api.HeadersType.ACCEPT_ENCODING
+import by.maxluxs.domain_remote.api.HeadersType.API_KEY
+import by.maxluxs.domain_remote.api.HeadersType.CONTENT_TYPE
+import by.maxluxs.domain_remote.api.HeadersValue.DEFLATE_GZIP
+import by.maxluxs.domain_remote.api.HeadersValue.JSON
+import by.maxluxs.domain_remote.api.HeadersValue.JSON_UTF
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
+import com.google.gson.GsonBuilder
+import com.google.gson.Gson
+import okhttp3.Interceptor
+import okhttp3.Response
 
 /**
  * Singleton object for creating a marketCapApi object
@@ -16,13 +27,18 @@ import java.util.concurrent.TimeUnit
  * */
 object MarketCapApiFactory {
 
+    private val gson: Gson = GsonBuilder()
+        .setLenient()
+        .create()
+
     /**
      * Create [MarketCapApi] object
      * */
     fun createMarketCapApi(): MarketCapApi = Retrofit.Builder()
         .baseUrl(MarketCapApiEndpoint.BASE)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(ScalarsConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .client(createOkHttpClient())
         .build()
         .create(MarketCapApi::class.java)
@@ -32,9 +48,10 @@ object MarketCapApiFactory {
      * */
     private fun createOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
-            .readTimeout(30, TimeUnit.SECONDS)
-            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(20, TimeUnit.SECONDS)
+            .connectTimeout(20, TimeUnit.SECONDS)
             .addInterceptor(createHttpLoggingInterceptor())
+            .addInterceptor(HeaderInterceptor)
             .build()
 
     }
@@ -50,6 +67,19 @@ object MarketCapApiFactory {
                 }
             }
         ).apply { setLevel(HttpLoggingInterceptor.Level.BODY) }
+    }
+
+    object HeaderInterceptor : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response = chain.run {
+            proceed(
+                request()
+                    .newBuilder()
+                    .addHeader(ACCEPT, JSON)
+                    .addHeader(CONTENT_TYPE, JSON_UTF)
+                    .addHeader(API_KEY, KEY.VALUE)
+                    .build()
+            )
+        }
     }
 
 }
