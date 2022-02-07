@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="16dp"
     app:cardElevation="4dp"
-    tools:context=".ConverterFragment">
+    tools:context=".ui.ConverterFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -26,11 +26,15 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_value"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
                 android:src="@drawable/ic_bitcoin" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -46,8 +50,12 @@
                 android:layout_weight="1" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/transfer"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
                 android:rotation="90"
                 android:src="@drawable/ic_transfer" />
 
@@ -64,12 +72,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:inputType="none"
+                android:inputType="numberDecimal"
                 android:text="0.00" />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/result_value"
                 android:layout_width="54dp"
                 android:layout_height="54dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
                 android:src="@drawable/ic_dollar" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>

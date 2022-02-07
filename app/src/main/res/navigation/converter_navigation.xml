@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/converterDestination"
-        android:name="by.maxluxs.feature_converter.ConverterFragment"
+        android:name="by.maxluxs.feature_converter.ui.ConverterFragment"
         android:label="@string/converter_title" />
 
 </navigation>
