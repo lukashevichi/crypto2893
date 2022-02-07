@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="17" project-jdk-type="JavaSDK" />
+=======
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/ST/crypto2893/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/ST/crypto2893/app/src/main/res/layout/content_fragment.xml" value="0.1685185185185185" />
+        <entry key="..\:/ST/crypto2893/feature-converter/src/main/res/layout/converter_fragment.xml" value="0.24074074074074073" />
+        <entry key="..\:/ST/crypto2893/feature-currency-details/src/main/res/layout/currency_details_fragment.xml" value="0.18541666666666667" />
+        <entry key="..\:/ST/crypto2893/feature-currency-list/src/main/res/layout/currency_item.xml" value="0.1685185185185185" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
+        <entry key="app/src/main/res/layout/content_fragment.xml" value="0.16510416666666666" />
+        <entry key="app/src/main/res/menu/menu_app_bar.xml" value="0.15520833333333334" />
+        <entry key="app/src/main/res/menu/menu_bottom_navigation.xml" value="0.28717948717948716" />
+        <entry key="feature-converter/src/main/res/drawable/ic_bitcoin.xml" value="0.18125" />
+        <entry key="feature-converter/src/main/res/drawable/ic_dollar.xml" value="0.18125" />
+        <entry key="feature-converter/src/main/res/drawable/ic_transfer.xml" value="0.18125" />
+        <entry key="feature-converter/src/main/res/layout/converter_fragment.xml" value="0.25" />
+        <entry key="feature-currency-details/src/main/res/drawable/ic_currency.xml" value="0.18125" />
+        <entry key="feature-currency-details/src/main/res/layout/currency_details_fragment.xml" value="0.25" />
+        <entry key="feature-currency-list/src/main/res/drawable/ic_currency.xml" value="0.18125" />
+        <entry key="feature-currency-list/src/main/res/layout/currency_item.xml" value="0.25" />
+        <entry key="feature-currency-list/src/main/res/layout/currency_list_fragment.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+>>>>>>> 8ea1f32227e1ddb5058d98af74b9e0f6f4a59927
 </project>

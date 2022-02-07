@@ -9,15 +9,17 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.isVisible
 import androidx.navigation.findNavController
 import androidx.navigation.ui.navigateUp
 import by.maxluxs.crypto2893.R
 import by.maxluxs.crypto2893.databinding.ActivityMainBinding
 import by.maxluxs.crypto2893.utils.AppBarConfigurations
+import by.maxluxs.common_component_interfaces.Activity.CanShowProgress
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CanShowProgress {
 
     private var _binding: ActivityMainBinding? = null
     private val binding: ActivityMainBinding get() = _binding!!
@@ -68,6 +70,14 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun showProgress() {
+        binding.contentProgress.isVisible = true
+    }
+
+    override fun hideProgress() {
+        binding.contentProgress.isVisible = false
     }
 
 }
