@@ -6,5 +6,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ContentViewModel @Inject constructor() : ViewModel() {
-    // TODO: Implement the ViewModel
+
 }

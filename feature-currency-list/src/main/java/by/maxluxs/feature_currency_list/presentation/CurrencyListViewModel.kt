@@ -1,6 +1,5 @@
 package by.maxluxs.feature_currency_list.presentation
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -39,13 +38,13 @@ class CurrencyListViewModel @Inject constructor(
         getCurrencies()
     }
 
-    private fun getCurrencies() {
+    fun getCurrencies() {
         repository
             .getCurrencies()
+            .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { progress(true) }
             .doOnSuccess { progress(false) }
             .doOnError { progress(false) }
-            .observeOn(AndroidSchedulers.mainThread())
             .flatMap { it.toModel() }
             .subscribe({ _data.postValue(it) }, { _error.postValue(it) })
             .disposeOnCleared()
@@ -60,7 +59,7 @@ class CurrencyListViewModel @Inject constructor(
 
     private fun Result<Currency>.toModel() =
         this.data
-            .map { CurrencyModel(id = it.id ?: -1, name = it.name ?: "", price = "") }
+            .map { CurrencyModel(id = it.id, name = it.name, price = "") }
             .justSingle()
 
 }

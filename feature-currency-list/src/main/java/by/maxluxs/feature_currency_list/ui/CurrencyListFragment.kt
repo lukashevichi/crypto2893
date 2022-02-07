@@ -34,6 +34,7 @@ class CurrencyListFragment : Fragment(R.layout.currency_list_fragment), Currency
         _binding = CurrencyListFragmentBinding.bind(view)
         setAdapter()
         setObservers()
+        setListeners()
     }
 
     private fun setObservers() {
@@ -41,11 +42,23 @@ class CurrencyListFragment : Fragment(R.layout.currency_list_fragment), Currency
             it?.let { list -> currencyAdapter?.submitList(list) }
         }
         viewModel.error.observe(viewLifecycleOwner) {
+            Log.e("!!!", it.toString())
             showError(it.localizedMessage ?: "")
         }
         viewModel.progress.observe(viewLifecycleOwner) {
-            if (it) (requireActivity() as? CanShowProgress)?.showProgress()
-            else (requireActivity() as? CanShowProgress)?.hideProgress()
+            if (it) {
+                (requireActivity() as? CanShowProgress)?.showProgress()
+                binding.refreshList.isRefreshing = true
+            } else {
+                (requireActivity() as? CanShowProgress)?.hideProgress()
+                binding.refreshList.isRefreshing = false
+            }
+        }
+    }
+
+    private fun setListeners() {
+        binding.refreshList.setOnRefreshListener {
+            viewModel.getCurrencies()
         }
     }
 

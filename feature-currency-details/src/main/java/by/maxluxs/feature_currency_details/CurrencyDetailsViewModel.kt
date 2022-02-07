@@ -6,5 +6,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CurrencyDetailsViewModel @Inject constructor() : ViewModel() {
-    // TODO: Implement the ViewModel
+
 }
