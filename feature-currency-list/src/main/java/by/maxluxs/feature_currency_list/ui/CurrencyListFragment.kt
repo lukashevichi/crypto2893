@@ -1,7 +1,9 @@
 package by.maxluxs.feature_currency_list.ui
 
 import android.os.Bundle
-import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -9,13 +11,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.maxluxs.common_component_interfaces.Activity.CanShowProgress
+import by.maxluxs.common_mapper.models_view.CurrencyModel
 import by.maxluxs.feature_currency_list.R
 import by.maxluxs.feature_currency_list.databinding.CurrencyListFragmentBinding
-import by.maxluxs.feature_currency_list.model.CurrencyModel
 import by.maxluxs.feature_currency_list.presentation.CurrencyListViewModel
 import by.maxluxs.feature_currency_list.ui.adapter.CurrencyAdapter
 import by.maxluxs.feature_currency_list.ui.adapter.CurrencyCallback
 import by.maxluxs.feature_currency_list.ui.adapter.SpacesItemDecoration
+import by.maxluxs.feature_filter.FilterItemListDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,12 +40,26 @@ class CurrencyListFragment : Fragment(R.layout.currency_list_fragment), Currency
         setListeners()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_app_bar, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.item_filter -> {
+                FilterItemListDialogFragment.newInstance(4)
+                    .show(childFragmentManager, FilterItemListDialogFragment.tag)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun setObservers() {
         viewModel.data.observe(viewLifecycleOwner) {
             it?.let { list -> currencyAdapter?.submitList(list) }
         }
         viewModel.error.observe(viewLifecycleOwner) {
-            Log.e("!!!", it.toString())
             showError(it.localizedMessage ?: "")
         }
         viewModel.progress.observe(viewLifecycleOwner) {
@@ -68,12 +85,12 @@ class CurrencyListFragment : Fragment(R.layout.currency_list_fragment), Currency
             adapter = CurrencyAdapter().apply {
                 clickCallback = this@CurrencyListFragment::onClickCurrencyItem
             }
-            addItemDecoration(SpacesItemDecoration(28))
+            addItemDecoration(SpacesItemDecoration(22))
         }
     }
 
     override fun onClickCurrencyItem(model: CurrencyModel) {
-        val bundle = bundleOf("name" to model.name, "price" to model.name)
+        val bundle = bundleOf("MODEL" to model, "TITLE" to model.name)
         findNavController().navigate(R.id.action_to_currency_details, bundle)
     }
 

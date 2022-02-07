@@ -3,15 +3,17 @@ package by.maxluxs.feature_currency_list.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import by.maxluxs.common_mapper.models_view.CurrencyModel
 import by.maxluxs.domain_remote.model.Result
-import by.maxluxs.domain_remote.model.response.Currency
+import by.maxluxs.domain_remote.model.response.CryptoCurrencyResponse
 import by.maxluxs.domain_repository.CurrenciesRepository
-import by.maxluxs.feature_currency_list.model.CurrencyModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import javax.inject.Inject
 
 @HiltViewModel
@@ -57,9 +59,28 @@ class CurrencyListViewModel @Inject constructor(
 
     private fun <T> T.justSingle() = Single.just(this)
 
-    private fun Result<Currency>.toModel() =
+    private fun Result<CryptoCurrencyResponse>.toModel(): Single<List<CurrencyModel>> =
         this.data
-            .map { CurrencyModel(id = it.id, name = it.name, price = "") }
+            .map {
+                CurrencyModel(
+                    id = it.id ?: -1,
+                    name = it.name ?: "",
+                    symbol = it.symbol ?: "",
+                    slug = it.slug ?: "",
+                    numMarketPairs = it.numMarketPairs.toString(),
+                    dateAdded = it.dateAdded.toString(),
+                    platform = it.platform?.name ?: "",
+                    cmcRank = it.cmcRank.toString(),
+                    lastUpdated = it.lastUpdated.toString(),
+                    price = "${it.quote?.USD?.price?.roundToString()} $"
+                )
+            }
             .justSingle()
+
+    fun Double.roundToString(): String {
+        val df = DecimalFormat("#.####")
+        df.roundingMode = RoundingMode.CEILING
+        return df.format(this)
+    }
 
 }

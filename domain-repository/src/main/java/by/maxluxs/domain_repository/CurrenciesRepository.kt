@@ -15,8 +15,12 @@ class CurrenciesRepository @Inject constructor(
     /**
      * get Currencies - api/map
      * */
-    fun getCurrencies() = marketCapApi
+    fun getMap() = marketCapApi
         .map()
+        .subscribeOn(io())
+
+    fun getCurrencies() = marketCapApi
+        .listingHistorical()
         .subscribeOn(io())
 
 }

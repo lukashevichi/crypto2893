@@ -2,4 +2,5 @@
 <resources>
     <string name="currency_price">Currency price:</string>
     <string name="currency_name">Currency name:</string>
+    <string name="menu_filter">Filter</string>
 </resources>

@@ -2,5 +2,4 @@
 <resources>
     <string name="menu_converter">Converter</string>
     <string name="menu_list">List</string>
-    <string name="menu_filter">Filter</string>
 </resources>

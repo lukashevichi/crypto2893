@@ -12,8 +12,10 @@ import androidx.navigation.ui.NavigationUI
 import by.maxluxs.crypto2893.R
 import by.maxluxs.crypto2893.databinding.ContentFragmentBinding
 import by.maxluxs.crypto2893.utils.AppBarConfigurations
+import by.maxluxs.crypto2893.utils.setToolBarIsScrolling
 import by.maxluxs.feature_converter.ConverterFragment
 import by.maxluxs.feature_currency_details.CurrencyDetailsFragment
+import by.maxluxs.feature_currency_list.ui.CurrencyListFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,14 +41,23 @@ class ContentFragment : Fragment(R.layout.content_fragment) {
                 is CurrencyDetailsFragment -> {
                     binding.appBarLayout.setExpanded(false, true)
                     binding.bottomNavigationView.isVisible = false
+                    f.setHasOptionsMenu(false)
+                    binding.toolbarLayout.setToolBarIsScrolling(false)
                 }
                 is ConverterFragment -> {
                     binding.appBarLayout.setExpanded(false, true)
                     binding.bottomNavigationView.isVisible = true
+                    f.setHasOptionsMenu(false)
+                }
+                is CurrencyListFragment -> {
+                    binding.toolbarLayout.setToolBarIsScrolling(true)
+                    binding.bottomNavigationView.isVisible = true
+                    f.setHasOptionsMenu(true)
                 }
                 else -> {
-                    binding.appBarLayout.setExpanded(true, true)
+                    binding.appBarLayout.setLiftable(true)
                     binding.bottomNavigationView.isVisible = true
+                    f.setHasOptionsMenu(false)
                 }
             }
             super.onFragmentResumed(fm, f)
@@ -61,6 +72,7 @@ class ContentFragment : Fragment(R.layout.content_fragment) {
         setActionBar()
         setBottomNavigationView()
         childFragmentManager.registerFragmentLifecycleCallbacks(fragmentListener, true)
+        setHasOptionsMenu(true)
     }
 
     private fun setActionBar() {
@@ -72,7 +84,6 @@ class ContentFragment : Fragment(R.layout.content_fragment) {
             navController,
             AppBarConfigurations.mainAppBarConfiguration
         )
-        setHasOptionsMenu(true)
     }
 
     private fun setBottomNavigationView() {
