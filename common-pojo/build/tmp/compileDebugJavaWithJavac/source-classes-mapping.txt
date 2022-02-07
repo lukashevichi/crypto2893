@@ -1,2 +1,0 @@
-by/maxluxs/common_pojo/BuildConfig.java
- by.maxluxs.common_pojo.BuildConfig
