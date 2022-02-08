@@ -3,6 +3,7 @@ package by.maxluxs.domain_remote.api
 import by.maxluxs.domain_remote.model.Result
 import by.maxluxs.domain_remote.model.request.ListingRequest
 import by.maxluxs.domain_remote.model.response.CryptoCurrencyResponse
+import by.maxluxs.domain_remote.model.response.CryptoCurrencyShortResponse
 import by.maxluxs.domain_remote.model.response.MapResponse
 import io.reactivex.Single
 import retrofit2.http.Body
@@ -37,10 +38,20 @@ interface MarketCapApi {
     /**
      * listingHistorical
      * @param limit - limiting response count
+     * Full response
+     * @see CryptoCurrencyResponse
      * */
     @GET("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest")
     fun listingHistorical(
         @Query("limit") limit: Int = 20
     ): Single<Result<CryptoCurrencyResponse>>
+
+    /**
+     * listingHistorical
+     * Short response
+     * @see CryptoCurrencyShortResponse
+     * */
+    @GET("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest")
+    fun listingHistoricalShort(): Single<Result<CryptoCurrencyShortResponse>>
 
 }

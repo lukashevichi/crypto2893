@@ -1,10 +1,10 @@
-package by.maxluxs.common_mapper.models_view
+package by.maxluxs.domain_repository.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class CurrencyModel(
+data class Currency(
     val id: Int,
     val name: String,
     val symbol: String,

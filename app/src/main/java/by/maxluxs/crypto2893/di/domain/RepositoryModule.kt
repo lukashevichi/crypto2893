@@ -1,7 +1,7 @@
 package by.maxluxs.crypto2893.di.domain
 
 import by.maxluxs.domain_remote.api.MarketCapApi
-import by.maxluxs.domain_repository.RepositoriesFactory
+import by.maxluxs.domain_repository.repository.RepositoriesFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

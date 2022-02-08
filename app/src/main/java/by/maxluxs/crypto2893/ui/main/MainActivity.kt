@@ -15,7 +15,7 @@ import androidx.navigation.ui.navigateUp
 import by.maxluxs.crypto2893.R
 import by.maxluxs.crypto2893.databinding.ActivityMainBinding
 import by.maxluxs.crypto2893.utils.AppBarConfigurations
-import by.maxluxs.common_component_interfaces.Activity.CanShowProgress
+import by.maxluxs.common_component_interfaces.activity.CanShowProgress
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

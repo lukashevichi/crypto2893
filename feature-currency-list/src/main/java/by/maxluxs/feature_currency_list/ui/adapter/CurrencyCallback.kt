@@ -1,12 +1,12 @@
 package by.maxluxs.feature_currency_list.ui.adapter
 
-import by.maxluxs.common_mapper.models_view.CurrencyModel
+import by.maxluxs.domain_repository.model.Currency
 
 /**
  *
  * */
 interface CurrencyCallback {
 
-    fun onClickCurrencyItem(model: by.maxluxs.common_mapper.models_view.CurrencyModel)
+    fun onClickCurrencyItem(model: Currency)
 
 }

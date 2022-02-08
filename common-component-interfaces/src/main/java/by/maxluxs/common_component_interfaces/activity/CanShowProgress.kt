@@ -1,4 +1,4 @@
-package by.maxluxs.common_component_interfaces.Activity
+package by.maxluxs.common_component_interfaces.activity
 
 /**
  *

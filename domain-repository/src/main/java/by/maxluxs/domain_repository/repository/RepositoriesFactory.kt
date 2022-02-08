@@ -1,4 +1,4 @@
-package by.maxluxs.domain_repository
+package by.maxluxs.domain_repository.repository
 
 import by.maxluxs.domain_remote.api.MarketCapApi
 

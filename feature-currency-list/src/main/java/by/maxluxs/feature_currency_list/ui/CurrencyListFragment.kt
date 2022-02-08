@@ -10,8 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import by.maxluxs.common_component_interfaces.Activity.CanShowProgress
-import by.maxluxs.common_mapper.models_view.CurrencyModel
+import by.maxluxs.common_component_interfaces.activity.CanShowProgress
+import by.maxluxs.domain_repository.model.Currency
+import by.maxluxs.feature_currency_details.CurrencyDetailsFragment
 import by.maxluxs.feature_currency_list.R
 import by.maxluxs.feature_currency_list.databinding.CurrencyListFragmentBinding
 import by.maxluxs.feature_currency_list.presentation.CurrencyListViewModel
@@ -55,6 +56,11 @@ class CurrencyListFragment : Fragment(R.layout.currency_list_fragment), Currency
         }
     }
 
+    override fun onClickCurrencyItem(model: Currency) {
+        val bundle = bundleOf(CurrencyDetailsFragment.MODEL_KEY to model)
+        findNavController().navigate(R.id.action_to_currency_details, bundle)
+    }
+
     private fun setObservers() {
         viewModel.data.observe(viewLifecycleOwner) {
             it?.let { list -> currencyAdapter?.submitList(list) }
@@ -87,11 +93,6 @@ class CurrencyListFragment : Fragment(R.layout.currency_list_fragment), Currency
             }
             addItemDecoration(SpacesItemDecoration(22))
         }
-    }
-
-    override fun onClickCurrencyItem(model: CurrencyModel) {
-        val bundle = bundleOf("MODEL" to model, "TITLE" to model.name)
-        findNavController().navigate(R.id.action_to_currency_details, bundle)
     }
 
     private fun showError(message: String) =
