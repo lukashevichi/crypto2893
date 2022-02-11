@@ -13,8 +13,8 @@ import by.maxluxs.crypto2893.R
 import by.maxluxs.crypto2893.databinding.ContentFragmentBinding
 import by.maxluxs.crypto2893.utils.AppBarConfigurations
 import by.maxluxs.feature_converter.ui.ConverterFragment
-import by.maxluxs.feature_currency_details.CurrencyDetailsFragment
-import by.maxluxs.feature_currency_list.ui.CurrencyListFragment
+import by.maxluxs.feature_currency_details.ui.CurrencyDetailsFragment
+import by.maxluxs.currency_list.ui.CurrencyListFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
